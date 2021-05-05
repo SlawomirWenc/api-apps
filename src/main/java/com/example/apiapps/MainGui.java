@@ -21,9 +21,11 @@ public class MainGui extends VerticalLayout{
         labelTitle.addClassName("title");
 
         Button buttonJokes = new Button("Jokes app", event -> UI.getCurrent().navigate("jokes"));
+        Button buttonJobs = new Button("GitHub Jobs app", event -> UI.getCurrent().navigate("jobs"));
 
         layout.add(labelTitle);
         layout.add(buttonJokes);
+        layout.add(buttonJobs);
 
         add(layout);
     }

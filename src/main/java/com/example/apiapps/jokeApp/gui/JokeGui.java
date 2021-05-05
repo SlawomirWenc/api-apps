@@ -1,6 +1,7 @@
-package com.example.apiapps;
+package com.example.apiapps.jokeApp.gui;
 
-import com.vaadin.flow.component.Text;
+import com.example.apiapps.ApiParser;
+import com.example.apiapps.jokeApp.model.Joke;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -10,7 +11,6 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,15 +45,13 @@ public class JokeGui extends VerticalLayout {
         Label labelTitle = new Label("Jokes");
         labelTitle.addClassName("title");
 
-
         Label labelInfo = new Label("(refresh page for more jokes)");
         labelInfo.addClassName("refreshInfo");
+
         Label textSetup = new Label(joke.getSetup());
         Label textPunchline = new Label(joke.getPunchline());
 
-        Button buttonShowPunchline = new Button("Show", buttonClickEvent -> {
-            layoutMain.add(layoutPunchline);
-        });
+        Button buttonShowPunchline = new Button("Show", buttonClickEvent -> layoutMain.add(layoutPunchline));
 
         layoutSetup.add(textSetup, buttonShowPunchline);
         layoutPunchline.add(textPunchline, image, labelInfo);
