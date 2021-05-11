@@ -23,7 +23,17 @@ public class ApiParser {
     }
 
     public static Job[] getJobFromApi(String search, String location) throws IOException {
-        String stringURL = "https://jobs.github.com/positions.json?search=" + search + "&location=" + location;
+
+        String stringURL = "https://jobs.github.com/positions.json?";
+        if(!search.equals("")){
+            stringURL += "search=" + search;
+        }
+        if(!location.equals("")){
+            if(!search.equals("")){
+                stringURL += "&";
+            }
+            stringURL += "location=" + location;
+        }
         URL url = new URL(stringURL);
         InputStreamReader reader = new InputStreamReader(url.openStream());
         Job[] job = new Gson().fromJson(reader, Job[].class);
