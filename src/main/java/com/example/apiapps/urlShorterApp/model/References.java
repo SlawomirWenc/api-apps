@@ -8,6 +8,14 @@ public class References {
     private String group;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public References() {
+    }
+
+    public References(String group, Map<String, Object> additionalProperties) {
+        this.group = group;
+        this.additionalProperties = additionalProperties;
+    }
+
     public String getGroup() {
         return group;
     }

@@ -41,6 +41,8 @@ public class Job {
     @Expose
     private String companyLogo;
 
+    public Job() {
+    }
 
     public Job(String url, String company, String location, String title) {
         this.url = url;

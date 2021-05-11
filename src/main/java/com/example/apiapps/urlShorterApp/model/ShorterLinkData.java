@@ -19,6 +19,22 @@ public class ShorterLinkData {
     private References references;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public ShorterLinkData() {
+    }
+
+    public ShorterLinkData(String createdAt, String id, String link, List<Object> customBitlinks, String longUrl, Boolean archived, List<Object> tags, List<Object> deeplinks, References references, Map<String, Object> additionalProperties) {
+        this.createdAt = createdAt;
+        this.id = id;
+        this.link = link;
+        this.customBitlinks = customBitlinks;
+        this.longUrl = longUrl;
+        this.archived = archived;
+        this.tags = tags;
+        this.deeplinks = deeplinks;
+        this.references = references;
+        this.additionalProperties = additionalProperties;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }

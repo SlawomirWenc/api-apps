@@ -35,9 +35,11 @@ public class JobsGui extends VerticalLayout {
         HorizontalLayout layoutSearch = new HorizontalLayout();
         TextField textFieldSearch = new TextField();
         textFieldSearch.setLabel("Search");
+        textFieldSearch.setClearButtonVisible(true);
 
         TextField textFieldLocation = new TextField();
         textFieldLocation.setLabel("Location");
+        textFieldLocation.setClearButtonVisible(true);
 
         Button buttonSearch = new Button("Search", buttonClickEvent -> {
             try {

@@ -20,6 +20,16 @@ public class Joke {
     @Expose
     private String punchline;
 
+    public Joke() {
+    }
+
+    public Joke(Integer id, String type, String setup, String punchline) {
+        this.id = id;
+        this.type = type;
+        this.setup = setup;
+        this.punchline = punchline;
+    }
+
     public Integer getId() {
         return id;
     }
