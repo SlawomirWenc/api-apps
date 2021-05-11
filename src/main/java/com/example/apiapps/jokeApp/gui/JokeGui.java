@@ -4,7 +4,6 @@ import com.example.apiapps.ApiParser;
 import com.example.apiapps.jokeApp.model.Joke;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.Icon;
@@ -17,7 +16,6 @@ import java.util.List;
 import java.util.Random;
 
 @Route("jokes")
-@CssImport(value = "./css/style.css")
 public class JokeGui extends VerticalLayout {
 
     public JokeGui() throws IOException {
@@ -26,7 +24,7 @@ public class JokeGui extends VerticalLayout {
         initImagesTable(images);
 
         Joke joke = ApiParser.getJokeFromApi();
-        Image image = new Image(getRandomImage(images), "hehe");
+        Image image = new Image(getRandomImage(images), "haha");
 
         VerticalLayout layoutMain = new VerticalLayout();
         layoutMain.setDefaultHorizontalComponentAlignment(Alignment.CENTER);
@@ -43,11 +41,10 @@ public class JokeGui extends VerticalLayout {
         IconBackToMain.addClickListener(event -> UI.getCurrent().navigate(""));
 
         Label labelTitle = new Label("Jokes");
-        labelTitle.addClassName("title");
+        labelTitle.getStyle().set("font-size","50px");
 
         Label labelInfo = new Label("(refresh page for more jokes)");
-        labelInfo.addClassName("refreshInfo");
-
+        labelInfo.getStyle().set("font-size","10px");
         Label textSetup = new Label(joke.getSetup());
         Label textPunchline = new Label(joke.getPunchline());
 
@@ -56,6 +53,7 @@ public class JokeGui extends VerticalLayout {
         layoutSetup.add(textSetup, buttonShowPunchline);
         layoutPunchline.add(textPunchline, image, labelInfo);
         layoutMain.add(labelTitle, layoutSetup);
+
         add(IconBackToMain);
         add(layoutMain);
     }

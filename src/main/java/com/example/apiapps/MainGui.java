@@ -9,7 +9,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route("")
-@CssImport(value = "./css/style.css")
 public class MainGui extends VerticalLayout{
 
     public MainGui() {
@@ -18,7 +17,7 @@ public class MainGui extends VerticalLayout{
         layout.setDefaultHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
 
         Label labelTitle = new Label("My api apps");
-        labelTitle.addClassName("title");
+        labelTitle.getStyle().set("font-size","50px");
 
         Button buttonJokes = new Button("Jokes app", event -> UI.getCurrent().navigate("jokes"));
         Button buttonJobs = new Button("GitHub Jobs app", event -> UI.getCurrent().navigate("jobs"));

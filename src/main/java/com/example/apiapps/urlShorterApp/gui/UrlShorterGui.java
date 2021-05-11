@@ -18,26 +18,24 @@ public class UrlShorterGui extends VerticalLayout {
         VerticalLayout layoutMain = new VerticalLayout();
         layoutMain.setDefaultHorizontalComponentAlignment(Alignment.CENTER);
 
+        Label labelTitle = new Label("Url Shorter");
+        labelTitle.getStyle().set("font-size","50px");
+
         Icon IconBackToMain = new Icon(VaadinIcon.ANGLE_LEFT);
         IconBackToMain.getStyle().set("cursor", "pointer");
         IconBackToMain.addClickListener(event -> UI.getCurrent().navigate(""));
 
         TextArea textArea  = new TextArea();
-        textArea.setPlaceholder("Paste url here");
+        textArea.setPlaceholder("Paste URL here");
         textArea.getStyle().set("maxHeight", "100px");
 
-        TextField textFieldShorterUrl = new TextField();
-        textFieldShorterUrl.setVisible(false);
-        textFieldShorterUrl.setAutoselect(true);
-
-        Button buttonDoMagic = new Button("DO MAGIC", buttonClickEvent -> {
+        Button buttonDoMagic = new Button("DO MAGIC !!!", buttonClickEvent -> {
             String shorterLink = ApiParser.getLink(textArea.getValue());
-            textFieldShorterUrl.setValue(shorterLink);
-            textFieldShorterUrl.setVisible(true);
+            TextField textFieldShorterUrl = new TextField("", shorterLink, "");
+            layoutMain.add(textFieldShorterUrl);
         });
 
-        layoutMain.add(textArea, buttonDoMagic, textFieldShorterUrl);
-
+        layoutMain.add(labelTitle, textArea, buttonDoMagic);
         add(IconBackToMain, layoutMain);
     }
 }

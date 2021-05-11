@@ -32,10 +32,8 @@ public class ApiParser {
 
     public static String getLink(String value){
         RestTemplate restTemplate = new RestTemplate();
-
         Link link =  new Link(value);
         HttpHeaders headers = new HttpHeaders();
-
         headers.set("Authorization", "Bearer <API KEY>");
 
         HttpEntity<Link> request = new HttpEntity<>(link, headers);

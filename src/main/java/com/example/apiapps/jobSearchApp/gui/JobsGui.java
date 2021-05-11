@@ -17,7 +17,6 @@ import java.io.IOException;
 
 
 @Route("jobs")
-@CssImport(value = "./css/style.css")
 public class JobsGui extends VerticalLayout {
 
     public JobsGui() throws IOException {
@@ -26,7 +25,7 @@ public class JobsGui extends VerticalLayout {
         IconBackToMain.addClickListener(event -> UI.getCurrent().navigate(""));
 
         Label labelTitle = new Label("GitHub Jobs");
-        labelTitle.addClassName("title");
+        labelTitle.getStyle().set("font-size","50px");
 
         Grid<Job> grid = new Grid<>(Job.class);
 
@@ -50,7 +49,6 @@ public class JobsGui extends VerticalLayout {
 
         layoutSearch.add(textFieldSearch, textFieldLocation);
         layoutMain.add(labelTitle, layoutSearch, buttonSearch);
-
 
         add(IconBackToMain);
         add(layoutMain);
